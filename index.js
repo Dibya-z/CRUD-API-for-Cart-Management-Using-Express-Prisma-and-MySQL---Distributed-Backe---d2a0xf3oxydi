@@ -1,9 +1,10 @@
 const express = require('express');
 const cartRoutes = require('./routes/cartRoutes');
-
+const middleware = require('./middleware/authMiddleware')
 
 const app = express();
 app.use(express.json());
+app.use(middleware)
 
 // Product routes 
 app.use('/api/cart', cartRoutes);
