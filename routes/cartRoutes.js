@@ -18,7 +18,7 @@ router.post('/addProduct', async(req,res)=>{
         const newlyCreatedCart = await prisma.cart.create({
             data :  {userId,productId,count}
         })
-        return res.status(201).json({newlyCreatedCart})
+        return res.status(201).json(newlyCreatedCart)
     }catch(e){
         return res.status(500).json({error : "Internal server error"})
     }
