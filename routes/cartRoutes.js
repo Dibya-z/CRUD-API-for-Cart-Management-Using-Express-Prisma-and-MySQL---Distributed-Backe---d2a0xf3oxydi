@@ -11,10 +11,10 @@ router.get('/',async(req,res)=>{
 })
 router.post('/addProduct', async(req,res)=>{
     const {userId, productId, count} = req.body;
-    if(!userId || !productId || !count){
-        return res.status(404).json({"error": "All fields required"})
-    }
     try{
+        if(!userId || !productId || !count){
+            return res.status(404).json({"error": "All fields required"})
+        }
         const newlyCreatedCart = await prisma.cart.create({
             data :  {userId,productId,count}
         })
